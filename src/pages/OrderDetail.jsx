@@ -1,12 +1,20 @@
 import { IoIosArrowForward } from "react-icons/io";
 import { IoArrowBack } from "react-icons/io5";
+import DropDown from "../components/DropDown";
+import { Link, useNavigate } from "react-router-dom";
 
 const OrderDetail = () => {
+  const pay = async (event) => {
+    navigate("/payment");
+  };
+
   return (
     <div>
-      <nav className="w-full grid grid-cols-4 place-content-around">
-        <IoArrowBack className="text-2xl" />
-        <h1 className="col-span-2 font-semibold">Input Order Detail</h1>
+      <nav className="w-full grid grid-cols-4 place-content-around items-">
+        <Link to="/">
+          <IoArrowBack className="text-xl" />{" "}
+        </Link>
+        <h1 className="col-span-2 font-semibold text-sm">Input Order Detail</h1>
         <IoArrowBack className="text-transparent" />
       </nav>
       <div className="text-sm flex gap-4 mt-6">
@@ -33,8 +41,12 @@ const OrderDetail = () => {
         </div>
       </div>
 
-      <div className="fixed left-0 bottom-0 w-screen flex flex-col shadow-3xl shadow-black rounded-xl">
-        <button className="bg-[#FFD100] py-2 px-4 mx-8 my-8 rounded-md border border-black flex items-center justify-between">
+      <div className="fixed left-0 bottom-0 w-screen flex flex-col shadow-3xl shadow-black rounded-t-xl">
+        <DropDown />
+        <button
+          className="bg-[#FFD100] py-2 px-4 mx-8 mb mb-12 mt-4 rounded-md border border-black flex items-center justify-between"
+          onClick={pay}
+        >
           <h1 className="font-bold text-sm">Rp.199.000</h1>
           <div className="flex flex-row items-center text-sm">
             <h1>Continue Payment</h1>
